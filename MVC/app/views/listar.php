@@ -31,6 +31,7 @@
                 <td>
                     <a href="index.php?acao=editar&id=<?= $filmes['id'] ?>">Editar</a> | 
                     <a href="index.php?acao=deletar&id=<?= $filmes['id'] ?>" onclick="return confirm('Você realmente deseja excluir esse filme?');">Excluir</a>
+                    <a href="index.php?acao=detalhes&id=<?= $filme['id'] ?>">Ver Detalhes</a>
                 </td>
             </tr>
         <?php endforeach;?>

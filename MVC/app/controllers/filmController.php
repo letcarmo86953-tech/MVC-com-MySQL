@@ -37,3 +37,10 @@ function atualizar(){
     header("Location: index.php");
     exit;
 }
+
+function detalhes(){
+    if(!empty($_GET['id'])){
+        $filme = buscarFilmes($_GET['id']);
+        require __DIR__ . '/../views/detalhes.php';
+    }
+}
