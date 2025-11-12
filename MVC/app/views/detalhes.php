@@ -177,8 +177,8 @@
             </div>
         </div>
     </nav>
+<header class="movie-header" style="background-image: url('<?= htmlspecialchars($capaPath) ?>');">
 
-    <header class="movie-header" style="background-image: url('<?= htmlspecialchars($filme['capa']) ?>');">
         <div class="header-overlay"></div>
         <div class="container header-content">
             <h1 class="movie-title"><?= htmlspecialchars(strtoupper($filme['titulo'])) ?></h1>
@@ -189,7 +189,7 @@
         <div class="row">
             <div class="col-lg-4 col-md-5 text-center">
                 <?php if (!empty($filme['capa'])): ?>
-                    <img src="<?= htmlspecialchars($filme['capa']) ?>" class="poster-image" alt="Capa do Filme">
+                    <img src="<?= htmlspecialchars($capaPath) ?>" class="poster-image" alt="Capa do Filme">
                 <?php endif; ?>
             </div>
 

@@ -84,8 +84,9 @@
             if (!empty($capa) && filter_var($capa, FILTER_VALIDATE_URL)) {
                 $capaPath = $capa;
             } elseif (!empty($capa) && file_exists(__DIR__ . '/../../' . $capa)) {
-                $capaPath = $capa;
-            } else {
+    $capaPath = $capa;
+}
+else {
                 $capaPath = 'https://placehold.co/300x450/414141/ffffff?text=CAPA+INDISPONÍVEL';
             }
         ?>

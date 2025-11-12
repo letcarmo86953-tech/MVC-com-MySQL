@@ -18,17 +18,21 @@ function deletar(){
 function salvar() {
     if (!empty($_POST['titulo']) && !empty($_POST['diretor'])) {
         $capaPath = null;
+
         if (!empty($_FILES['capa']['tmp_name'])) {
-            $uploadDir = __DIR__ . '/../uploads/';
+            $uploadDir = __DIR__ . '/../../uploads/';
             if (!is_dir($uploadDir)) {
                 mkdir($uploadDir, 0777, true);
             }
+
             $nomeArquivo = uniqid() . '_' . basename($_FILES['capa']['name']);
             $destino = $uploadDir . $nomeArquivo;
+
             if (move_uploaded_file($_FILES['capa']['tmp_name'], $destino)) {
-                $capaPath = 'uploads/' . $nomeArquivo;
+                $capaPath = 'app/uploads/' . $nomeArquivo;
             }
         }
+
         adicionarFilmes(
             $_POST['titulo'],
             $_POST['diretor'],
@@ -45,9 +49,10 @@ function salvar() {
 }
 
 
-function editar(){
-    if(!empty($_GET['id'])){
-        $filmes = buscarFilmes($_GET['id']);
+
+function editar() {
+    if (!empty($_GET['id'])) {
+        $filme = buscarFilmes($_GET['id']);
         require __DIR__ . '/../views/editar.php';
     }
 }

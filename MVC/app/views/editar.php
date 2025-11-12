@@ -33,10 +33,13 @@
             <div class="col-lg-8 col-md-10">
                 <div class="form-panel p-4 rounded shadow">
                     <h2 class="text-warning text-center mb-4 pb-2 border-bottom border-warning border-opacity-50">
-                        🎬 Adicionar Novo Filme
+                        Editar Filme
                     </h2>
                     
-                    <form action="index.php?acao=salvar" method="post" enctype="multipart/form-data">
+                        <form action="index.php?acao=atualizar" method="post" enctype="multipart/form-data">
+                            <?php if (isset($filme['id'])): ?>
+                                <input type="hidden" name="id" value="<?= htmlspecialchars($filme['id']) ?>">
+                            <?php endif; ?>
                         
                         <div class="row mb-3">
                             <div class="col-md-9">
@@ -65,8 +68,8 @@
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">Sinopse</label>
-                            <textarea class="form-control" name="sinopse" rows="4"><?= isset($filme['sinopse']) ? htmlspecialchars($filme['sinopse']) : '' ?></textarea>
+                            <label class="form-label">Comentário</label>
+                            <textarea class="form-control" name="comentario" rows="4"><?= isset($filme['comentario']) ? htmlspecialchars($filme['comentario']) : '' ?></textarea>
                         </div>
 
                         <div class="mb-4">
@@ -75,14 +78,10 @@
                             <input class="form-control" type="file" name="capa_arquivo" accept="image/*">
                         </div>
 
-                        <div class="mb-3">
-                            <label class="form-label">Comentário</label>
-                            <textarea class="form-control" name="comentario" rows="4"><?= isset($filme['comentario']) ? htmlspecialchars($filme['comentario']) : '' ?></textarea>
-                        </div>
 
                         <div class="d-flex justify-content-between mt-4">
                             <a href="index.php" class="btn btn-secondary">Cancelar</a>
-                            <button type="submit" class="btn btn-warning fw-bold px-4">Salvar Filme</button>
+                            <button type="submit" class="btn btn-warning fw-bold px-4">Salvar Alterações</button>
                         </div>
                     </form>
                 </div>
