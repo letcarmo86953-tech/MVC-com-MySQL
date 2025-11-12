@@ -67,57 +67,75 @@
 
     <div class="container mt-5">
 
-        <h3 class="mb-3 text-warning border-bottom border-warning pb-2">Mais bem avaliados</h3>
-        <div id="filmesCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner rounded-3 shadow-lg">
-                
-                <div class="carousel-item active">
-                    <img src="https://placehold.co/1200x400/171717/cccccc?text=Filme+1" class="d-block w-100" alt="Filme 1">
+<h3 class="mb-3 text-warning border-bottom border-warning pb-2">Mais bem avaliados</h3>
+<div id="filmesCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner rounded-3 shadow-lg">
+
+        <?php 
+        if (isset($filmes) && count($filmes) > 0):
+            usort($filmes, function($a, $b) {
+                return ($b['avaliacao'] ?? 0) <=> ($a['avaliacao'] ?? 0);
+            });
+            $topFilmes = array_slice($filmes, 0, 3);
+            $active = 'active';
+
+            foreach ($topFilmes as $filme): 
+                $capa = $filme['capa'] ?? '';
+                if (!empty($capa) && filter_var($capa, FILTER_VALIDATE_URL)) {
+                    $capaPath = $capa;
+                } elseif (!empty($capa) && file_exists(__DIR__ . '/../../' . $capa)) {
+                    $capaPath = $capa;
+                } else {
+                    $capaPath = 'https://placehold.co/1200x400/171717/cccccc?text=CAPA+INDISPONÍVEL';
+                }
+        ?>
+                <div class="carousel-item <?= $active ?>">
+                    <img src="<?= htmlspecialchars($capaPath) ?>" class="d-block w-100" alt="<?= htmlspecialchars($filme['titulo']) ?>">
                     <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded p-2">
-                        <h5 class="fw-bold text-warning">Título do Filme 1</h5>
-                        <p class="small">Breve descrição sobre o filme recém-adicionado.</p>
+                        <h5 class="fw-bold text-warning"><?= htmlspecialchars($filme['titulo']) ?></h5>
+                        <p class="small">
+                            <?= htmlspecialchars($filme['genero'] ?? '') ?> 
+                            • <?= htmlspecialchars($filme['ano'] ?? '') ?> 
+                            • Nota: <?= htmlspecialchars($filme['avaliacao'] ?? 'S/N') ?>
+                        </p>
                     </div>
                 </div>
-
-                <div class="carousel-item">
-                    <img src="https://placehold.co/1200x400/171717/cccccc?text=Filme+2" class="d-block w-100" alt="Filme 2">
-                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded p-2">
-                        <h5 class="fw-bold text-warning">Título do Filme 2</h5>
-                        <p class="small">Aventura e emoção em alta definição!</p>
-                    </div>
-                </div>
-
-                <div class="carousel-item">
-                    <img src="https://placehold.co/1200x400/171717/cccccc?text=Filme+3" class="d-block w-100" alt="Filme 3">
-                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded p-2">
-                        <h5 class="fw-bold text-warning">Título do Filme 3</h5>
-                        <p class="small">O mais recente sucesso na biblioteca MiauBoxd.</p>
-                    </div>
+        <?php 
+                $active = '';
+            endforeach; 
+        else: 
+        ?>
+            <div class="carousel-item active">
+                <img src="https://placehold.co/1200x400/171717/cccccc?text=Sem+filmes+disponíveis" class="d-block w-100" alt="Sem filmes">
+                <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded p-2">
+                    <h5 class="fw-bold text-warning">Nenhum filme disponível</h5>
+                    <p class="small">Adicione filmes para vê-los aqui.</p>
                 </div>
             </div>
+        <?php endif; ?>
+    </div>
 
-            <button class="carousel-control-prev" type="button" data-bs-target="#filmesCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#filmesCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#filmesCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#filmesCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Próximo</span>
+    </button>
+</div>
+
 
         <h3 class="mt-5 mb-4 text-light border-bottom border-secondary pb-2">Minha Coleção</h3>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 mb-5">
             
             <?php 
             if (isset($filmes) && is_array($filmes)):
-                foreach ($filmes as $filme): 
-                    $caminhoAbsoluto = realpath(__DIR__ . '/../../' . $filme['capa']);
-                    $caminhoRelativo = $filme['capa'];
-
-                    $capaPath = (!empty($filme['capa']) && $caminhoAbsoluto && file_exists($caminhoAbsoluto))
-                        ? $caminhoRelativo
-                        : 'https://placehold.co/300x450/414141/ffffff?text=CAPA+INDISPONÍVEL';
+                $capaPath = (!empty($filme['capa']) && filter_var($filme['capa'], FILTER_VALIDATE_URL))
+                    ? $filme['capa']
+                    : (file_exists(__DIR__ . '/../../' . $filme['capa'])
+                        ? $filme['capa']
+                        : 'https://placehold.co/300x450/414141/ffffff?text=CAPA+INDISPONÍVEL');
 
             ?>
                 <div class="col">
