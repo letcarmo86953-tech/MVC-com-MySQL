@@ -131,6 +131,7 @@
             
             <?php 
             if (isset($filmes) && is_array($filmes)):
+             foreach ($filmes as $filme):
                 $capaPath = (!empty($filme['capa']) && filter_var($filme['capa'], FILTER_VALIDATE_URL))
                     ? $filme['capa']
                     : (file_exists(__DIR__ . '/../../' . $filme['capa'])
