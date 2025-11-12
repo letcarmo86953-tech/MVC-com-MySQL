@@ -112,12 +112,12 @@
             <?php 
             if (isset($filmes) && is_array($filmes)):
                 foreach ($filmes as $filme): 
-                    $caminhoAbsoluto = __DIR__ . '/../' . $filme['capa'];
-$caminhoRelativo = 'uploads/' . basename($filme['capa']);
+                    $caminhoAbsoluto = realpath(__DIR__ . '/../../' . $filme['capa']);
+                    $caminhoRelativo = $filme['capa'];
 
-$capaPath = !empty($filme['capa']) && file_exists($caminhoAbsoluto)
-    ? $caminhoRelativo
-    : 'https://placehold.co/300x450/414141/ffffff?text=CAPA+INDISPONÍVEL';
+                    $capaPath = (!empty($filme['capa']) && $caminhoAbsoluto && file_exists($caminhoAbsoluto))
+                        ? $caminhoRelativo
+                        : 'https://placehold.co/300x450/414141/ffffff?text=CAPA+INDISPONÍVEL';
 
             ?>
                 <div class="col">
@@ -131,7 +131,7 @@ $capaPath = !empty($filme['capa']) && file_exists($caminhoAbsoluto)
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title text-warning fw-bold"><?= htmlspecialchars($filme['titulo']) ?></h5>
 
-                            <p class="card-text small text-light text-muted mb-2">
+                            <p class="card-text small text-light  mb-2">
                                 Diretor: <?= htmlspecialchars($filme['diretor'] ?? 'N/A') ?><br>
                                 Ano: <?= htmlspecialchars($filme['ano'] ?? 'N/A') ?><br>
                                 Gênero: <?= htmlspecialchars($filme['genero'] ?? 'N/A') ?>

@@ -28,3 +28,12 @@ function excluirFilmes($id){
     $stmt = $pdo->prepare($sql);
     return $stmt->execute([$id]);
 }
+
+function buscarFilmes($id) {
+    $pdo = getConnection();
+    $sql = "SELECT * FROM filmes WHERE id = ?";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$id]);
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+

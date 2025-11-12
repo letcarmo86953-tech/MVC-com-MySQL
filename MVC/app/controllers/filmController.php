@@ -1,5 +1,6 @@
 <?php
-require_once __DIR__ . "/../models/filme.php";
+require_once __DIR__ . '/../models/filme.php';
+
 
 function index(){
     $filmes = listarFilmes();

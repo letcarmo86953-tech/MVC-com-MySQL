@@ -19,7 +19,10 @@ switch($acao){
     case 'salvar':
         salvar();
         break;
-    case 'atualizar';
+    case 'editar':
+        editar();
+        break;
+    case 'atualizar':
         atualizar();
         break;
     case 'detalhes':
