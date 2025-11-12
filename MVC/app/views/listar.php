@@ -112,11 +112,14 @@
             <?php 
             if (isset($filmes) && is_array($filmes)):
                 foreach ($filmes as $filme): 
+                    $capaPath = !empty($filme['capa'])
+                        ? (file_exists(__DIR__ . '/../' . $filme['capa']) ? '../' . htmlspecialchars($filme['capa']) : 'https://placehold.co/300x450/414141/ffffff?text=CAPA+INDISPONÍVEL')
+                        : 'https://placehold.co/300x450/414141/ffffff?text=SEM+CAPA';
             ?>
                 <div class="col">
                     <div class="card card-dark h-100">
                         <img 
-                            src="<?= htmlspecialchars($filme['capa'] ?? 'https://placehold.co/300x450/414141/ffffff?text=SEM+CAPA') ?>" 
+                            src="<?= $capaPath ?>" 
                             class="card-img-top" 
                             alt="<?= htmlspecialchars($filme['titulo']) ?>"
                             onerror="this.onerror=null;this.src='https://placehold.co/300x450/414141/ffffff?text=CAPA+INDISPONÍVEL';"

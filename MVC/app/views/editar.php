@@ -47,6 +47,10 @@
                                 <label class="form-label">Ano</label>
                                 <input type="number" class="form-control" name="ano" value="<?= isset($filme['ano']) ? htmlspecialchars($filme['ano']) : '' ?>" min="1888" max="2099" required>
                             </div>
+                                <div class="col-md-3">
+                                    <label for="diretor" class="form-label">Diretor</label>
+                                    <input type="text" class="form-control" id="diretor" name="diretor" value="<?= isset($filme['diretor']) ? htmlspecialchars($filme['diretor']) : '' ?>"  placeholder="ex: Hayao Miyazaki" required>
+                                </div>
                         </div>
 
                         <div class="row mb-3">

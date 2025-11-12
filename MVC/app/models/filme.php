@@ -25,6 +25,6 @@ function atualizarFilmes($id,$titulo, $diretor, $ano, $genero, $capa, $comentari
 function excluirFilmes($id){
     $pdo = getConnection();
     $sql = "DELETE FROM filmes WHERE id = ?";
-    $stmt = $pdo -> query($sql);
-    return $stmt -> execute([$id]); 
+    $stmt = $pdo->prepare($sql);
+    return $stmt->execute([$id]);
 }

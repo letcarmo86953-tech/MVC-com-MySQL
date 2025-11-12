@@ -14,13 +14,35 @@ function deletar(){
     exit;
 }
 
-function salvar(){
-    if(!empty($_POST['titulo']) && !empty($_POST['diretor'])){
-        adicionarFilmes($_POST['titulo'], $_POST['diretor'], $_POST['ano'], $_POST['genero'], $_POST['capa'], $_POST['comentario'], $_POST['avaliacao']);
+function salvar() {
+    if (!empty($_POST['titulo']) && !empty($_POST['diretor'])) {
+        $capaPath = null;
+        if (!empty($_FILES['capa']['tmp_name'])) {
+            $uploadDir = __DIR__ . '/../uploads/';
+            if (!is_dir($uploadDir)) {
+                mkdir($uploadDir, 0777, true);
+            }
+            $nomeArquivo = uniqid() . '_' . basename($_FILES['capa']['name']);
+            $destino = $uploadDir . $nomeArquivo;
+            if (move_uploaded_file($_FILES['capa']['tmp_name'], $destino)) {
+                $capaPath = 'uploads/' . $nomeArquivo;
+            }
+        }
+        adicionarFilmes(
+            $_POST['titulo'],
+            $_POST['diretor'],
+            $_POST['ano'],
+            $_POST['genero'],
+            $capaPath,
+            $_POST['comentario'],
+            $_POST['avaliacao']
+        );
     }
-    header( "Location: index.php");
+
+    header("Location: index.php");
     exit;
 }
+
 
 function editar(){
     if(!empty($_GET['id'])){

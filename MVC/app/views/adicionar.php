@@ -41,16 +41,21 @@
                     
                     <form method="POST" action="index.php?acao=salvar" enctype="multipart/form-data">
                         
-                        <div class="row mb-3">
-                            <div class="col-md-9">
-                                <label for="titulo" class="form-label">Título do Filme</label>
-                                <input type="text" class="form-control" id="titulo" name="titulo" required>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="titulo" class="form-label">Título do Filme</label>
+                                    <input type="text" class="form-control" id="titulo" name="titulo" required>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="ano" class="form-label">Ano</label>
+                                    <input type="number" class="form-control" id="ano" name="ano" min="1888" max="2099" required>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="diretor" class="form-label">Diretor</label>
+                                    <input type="text" class="form-control" id="diretor" name="diretor" placeholder="ex: Hayao Miyazaki" required>
+                                </div>
                             </div>
-                            <div class="col-md-3">
-                                <label for="ano" class="form-label">Ano</label>
-                                <input type="number" class="form-control" id="ano" name="ano" min="1888" max="2099" required>
-                            </div>
-                        </div>
+
 
                         <div class="row mb-3">
                             <div class="col-md-6">
