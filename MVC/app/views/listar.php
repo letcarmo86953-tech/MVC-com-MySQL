@@ -15,10 +15,10 @@
             min-height: 100vh;
         }
         .card-dark {
-            background-color: #2c2c2c; /* Um cinza mais claro que o fundo */
+            background-color: #2c2c2c; 
             border: 1px solid #3d3d3d;
-            border-radius: 0.75rem; /* Bordas arredondadas */
-            overflow: hidden; /* Garante que a imagem siga o arredondamento */
+            border-radius: 0.75rem;
+            overflow: hidden;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
         .card-dark:hover {
@@ -32,7 +32,7 @@
         #filmesCarousel img {
             max-height: 400px;
             object-fit: cover;
-            filter: brightness(0.8); /* Escurece um pouco para o caption se destacar */
+            filter: brightness(0.8); 
         }
         .card-actions .btn {
             margin-top: 8px;
@@ -41,7 +41,6 @@
 </head>
 <body>
 
-    <!-- NAV BAR -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-lg">
         <div class="container-fluid">
             <a class="navbar-brand text-warning fs-3 fw-bold" href="index.php?acao=inicial">MiauBoxd</a>
@@ -65,11 +64,9 @@
             </div>
         </div>
     </nav>
-    <!-- FIM NAV BAR -->
 
     <div class="container mt-5">
 
-        <!-- CAROUSEL (Mantido estático para visualização) -->
         <h3 class="mb-3 text-warning border-bottom border-warning pb-2">Mais bem avaliados</h3>
         <div id="filmesCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner rounded-3 shadow-lg">
