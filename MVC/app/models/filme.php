@@ -10,7 +10,7 @@ function listarFilmes(){
 
 function adicionarFilmes($titulo, $diretor, $ano, $genero, $capa, $comentario, $avaliacao){
     $pdo = getConnection();
-    $sql = "INSERT INTO filmes (titulo, diretor, ano, genero, capa, comentario) VALUES (?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO filmes (titulo, diretor, ano, genero, capa, comentario, avaliacao) VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmt = $pdo -> prepare($sql);
     return $stmt -> execute([$titulo, $diretor, $ano, $genero, $capa, $comentario, $avaliacao]);
 }

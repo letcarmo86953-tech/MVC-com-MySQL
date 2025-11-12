@@ -16,7 +16,7 @@ function deletar(){
 
 function salvar(){
     if(!empty($_POST['titulo']) && !empty($_POST['diretor'])){
-        adicionarFilme($_POST['titulo'], $_POST['diretor'], $_POST['ano'], $_POST['genero'], $_POST['capa'], $_POST['comentario']);
+        adicionarFilmes($_POST['titulo'], $_POST['diretor'], $_POST['ano'], $_POST['genero'], $_POST['capa'], $_POST['comentario'], $_POST['avaliacao']);
     }
     header( "Location: index.php");
     exit;
@@ -32,7 +32,7 @@ function editar(){
 function atualizar(){
     if(!empty($_POST['id']) && !empty($_POST['titulo']) &&
     !empty($_POST['diretor'])) {
-        atualizarFilme($_POST['id'], $_POST['titulo'], $_POST['diretor'], $_POST['ano'], $_POST['genero'], $_POST['capa'], $_POST['comentario']);
+        atualizarFilmes($_POST['id'], $_POST['titulo'], $_POST['diretor'], $_POST['ano'], $_POST['genero'], $_POST['capa'], $_POST['comentario'], $_POST['avaliacao']);
     }
     header("Location: index.php");
     exit;

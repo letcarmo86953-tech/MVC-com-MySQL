@@ -73,8 +73,8 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="sinopse" class="form-label">Sinopse</label>
-                            <textarea class="form-control" id="sinopse" name="sinopse" rows="4" required></textarea>
+                            <label for="comentario" class="form-label">Comentário</label>
+                            <textarea class="form-control" id="comentario" name="comentario" rows="4" required></textarea>
                         </div>
 
                         <div class="mb-4">
