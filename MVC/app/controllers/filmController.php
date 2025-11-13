@@ -38,7 +38,7 @@ function salvar() {
             $_POST['diretor'],
             $_POST['ano'],
             $_POST['genero'],
-            $capaPath,
+            $_POST['capa'],
             $_POST['comentario'],
             $_POST['avaliacao']
         );
