@@ -75,7 +75,6 @@
                         <div class="mb-4">
                             <label class="form-label">URL ou Capa do Filme</label>
                             <input type="text" class="form-control mb-2" name="capa" value="<?= isset($filme['capa']) ? htmlspecialchars($filme['capa']) : '' ?>" placeholder="URL da imagem (ou envie um arquivo abaixo)">
-                            <input class="form-control" type="file" name="capa_arquivo" accept="image/*">
                         </div>
 
 
