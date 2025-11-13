@@ -73,8 +73,8 @@
                         </div>
 
                         <div class="mb-4">
-                            <label class="form-label">URL ou Capa do Filme</label>
-                            <input type="text" class="form-control mb-2" name="capa" value="<?= isset($filme['capa']) ? htmlspecialchars($filme['capa']) : '' ?>" placeholder="URL da imagem (ou envie um arquivo abaixo)">
+                            <label class="form-label">URL da Capa do Filme</label>
+                            <input type="text" class="form-control" name="capa" value="<?= isset($filme['capa']) ? htmlspecialchars($filme['capa']) : '' ?>" placeholder="URL da imagem (ou envie um arquivo abaixo)">
                         </div>
 
 
