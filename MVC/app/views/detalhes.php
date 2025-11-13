@@ -81,12 +81,14 @@
         }
 
         .movie-title {
-            font-size: 4.5rem;
+            font-size: 4.0rem;
             font-weight: 900;
             text-transform: uppercase;
             color: var(--text-light);
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
             line-height: 1;
+            align-self: flex-end;
+            justify-content: flex-end;
         }
 
         .poster-image {
@@ -223,7 +225,7 @@
 
         <div class="down-row text-center d-flex mt-4">
             <a href="index.php?acao=editar&id=<?= $filme['id'] ?>" class="btn btn-warning mt-3 fs-5">Editar</a>
-            <a href="index.php?acao=excluir&id=<?= $filme['id'] ?>" class="btn btn-warning mt-3 fs-5"
+            <a href="index.php?acao=deletar&id=<?= $filme['id'] ?>" class="btn btn-warning mt-3 fs-5"
                onclick="return confirm('Tem certeza que deseja excluir este filme?')">Excluir da lista</a>
         </div>
     </div>
