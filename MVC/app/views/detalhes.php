@@ -61,7 +61,6 @@
             background-position: center top;
             overflow: hidden;
             display: flex;
-            align-items: flex-end;
             justify-content: flex-end;
             padding: 40px 0;
         }
