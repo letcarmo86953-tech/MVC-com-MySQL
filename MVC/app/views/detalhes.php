@@ -188,9 +188,9 @@
     <div class="container details-section">
         <div class="row">
             <div class="col-lg-4 col-md-5 text-center">
-                <?php if (!empty($filme['capa'])): ?>
-                    <img src="<?= htmlspecialchars($capaPath) ?>" class="poster-image" alt="Capa do Filme">
-                <?php endif; ?>
+            <?php if (!empty($filme['capa'])): ?>
+                <img src="<?= htmlspecialchars($filme['capa']) ?>" class="poster-image" alt="Capa do Filme">
+            <?php endif; ?>
             </div>
 
             <div class="col-lg-8 col-md-7 pt-4 pt-md-0">

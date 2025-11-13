@@ -84,7 +84,7 @@
 
                         <div class="mb-4">
                             <label for="capa" class="form-label">Capa do Filme (Poster)</label>
-                            <input class="form-control" type="text" id="capa_url" name="capa_url" placeholder="Cole o endereço (URL) da imagem aqui" required>
+                            <input class="form-control" type="text" id="capa" name="capa" placeholder="Cole o endereço (URL) da imagem aqui" required>
                             <div class="form-text text-light">Insira uma URL direta para a imagem (por exemplo: https://exemplo.com/imagem.jpg).</div>
                         </div>
 
