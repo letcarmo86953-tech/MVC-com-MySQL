@@ -62,6 +62,7 @@
             overflow: hidden;
             display: flex;
             align-items: flex-end;
+            justify-content: flex-end;
             padding: 40px 0;
         }
 
@@ -78,6 +79,7 @@
         .header-content {
             position: relative;
             z-index: 2;
+            justify-content: flex-end;
         }
 
         .movie-title {
@@ -88,7 +90,7 @@
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
             line-height: 1;
             align-self: flex-end;
-            justify-content: flex-end;
+
         }
 
         .poster-image {
@@ -179,7 +181,7 @@
             </div>
         </div>
     </nav>
-<header class="movie-header" style="background-image: url('<?= htmlspecialchars($capaPath) ?>');">
+<header class="movie-header" style="background-image: url('<?= htmlspecialchars($capa) ?>');">
 
         <div class="header-overlay"></div>
         <div class="container header-content">

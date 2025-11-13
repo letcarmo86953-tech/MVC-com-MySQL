@@ -10,7 +10,7 @@ switch($acao){
     case 'index':
         index();
         break;
-    case 'delete':
+    case 'deletar':
         deletar();
         break;
     case 'form':
